@@ -31,6 +31,7 @@ class CoversViewController: UIViewController, CoversDisplayLogic {
         navigationItem.title = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String
         
         presenter?.presentData(request: Covers.Model.Response.ResponseType.presentCovers)
+        showActivityIndicatory()
     }
     
     func displayData(viewModel: Covers.Model.ViewModel.ViewModelData) {
