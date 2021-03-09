@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cover View Controller-->
+        <scene sceneID="eXt-Jc-pwy">
+            <objects>
+                <viewController storyboardIdentifier="CoverViewController" id="jTw-MF-cfp" customClass="CoverViewController" customModule="Books" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z3N-bd-blp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="desc" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3W-2y-YH6">
+                                <rect key="frame" x="20" y="436" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bQM-0r-N54" customClass="WebImageView" customModule="RandomContacts" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="74" width="414" height="268"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bQM-0r-N54" secondAttribute="height" multiplier="17:11" id="jwP-T0-sbe"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="author" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8af-zd-tSu">
+                                <rect key="frame" x="20" y="382" width="374" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="f2K-If-dtI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="f2K-If-dtI" firstAttribute="trailing" secondItem="8af-zd-tSu" secondAttribute="trailing" constant="20" id="0tb-Kv-HCJ"/>
+                            <constraint firstItem="8af-zd-tSu" firstAttribute="leading" secondItem="f2K-If-dtI" secondAttribute="leading" constant="20" id="1wi-mI-oT4"/>
+                            <constraint firstItem="8af-zd-tSu" firstAttribute="top" secondItem="bQM-0r-N54" secondAttribute="bottom" constant="40" id="AtC-Lm-avg"/>
+                            <constraint firstItem="bQM-0r-N54" firstAttribute="leading" secondItem="f2K-If-dtI" secondAttribute="leading" id="IEJ-6N-ks9"/>
+                            <constraint firstItem="f2K-If-dtI" firstAttribute="trailing" secondItem="bQM-0r-N54" secondAttribute="trailing" id="Pzg-NT-fFd"/>
+                            <constraint firstItem="f2K-If-dtI" firstAttribute="trailing" secondItem="D3W-2y-YH6" secondAttribute="trailing" constant="20" id="WLn-DX-Y4h"/>
+                            <constraint firstItem="D3W-2y-YH6" firstAttribute="leading" secondItem="f2K-If-dtI" secondAttribute="leading" constant="20" id="YZv-lQ-gdi"/>
+                            <constraint firstItem="bQM-0r-N54" firstAttribute="top" secondItem="f2K-If-dtI" secondAttribute="top" constant="30" id="gHw-A8-yVM"/>
+                            <constraint firstItem="D3W-2y-YH6" firstAttribute="top" secondItem="8af-zd-tSu" secondAttribute="bottom" constant="30" id="r5b-kk-sDT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="authorLabel" destination="8af-zd-tSu" id="JQv-tx-07d"/>
+                        <outlet property="coverImageView" destination="bQM-0r-N54" id="0DL-6D-0Er"/>
+                        <outlet property="descriptionLabel" destination="D3W-2y-YH6" id="Ftr-jO-dJE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6dc-fG-8Jg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="265" y="66"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
