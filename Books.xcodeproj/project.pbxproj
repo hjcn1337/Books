@@ -27,6 +27,13 @@
 		5248E57E25F7E3E9008CCA0D /* CoversService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5248E57D25F7E3E9008CCA0D /* CoversService.swift */; };
 		5248E58125F7E3FD008CCA0D /* CoversPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5248E58025F7E3FD008CCA0D /* CoversPresenter.swift */; };
 		5248E58525F7E501008CCA0D /* CoversResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5248E58425F7E501008CCA0D /* CoversResponse.swift */; };
+		52BD227625F93BA7005B3B7E /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BD227525F93BA7005B3B7E /* FavoriteViewController.swift */; };
+		52BD227A25F93BBB005B3B7E /* FavoriteScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52BD227925F93BBB005B3B7E /* FavoriteScene.storyboard */; };
+		52BD227D25F93C6C005B3B7E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BD227C25F93C6C005B3B7E /* CoreDataStack.swift */; };
+		52BD228025F93C82005B3B7E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BD227F25F93C82005B3B7E /* CoreDataManager.swift */; };
+		52BD228425F93CB5005B3B7E /* FavoriteCover.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52BD228225F93CB5005B3B7E /* FavoriteCover.xcdatamodeld */; };
+		52BD228A25F93E7C005B3B7E /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BD228925F93E7C005B3B7E /* FavoriteService.swift */; };
+		52BD228E25F93F5C005B3B7E /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BD228D25F93F5C005B3B7E /* FavoriteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +59,13 @@
 		5248E57D25F7E3E9008CCA0D /* CoversService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoversService.swift; sourceTree = "<group>"; };
 		5248E58025F7E3FD008CCA0D /* CoversPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoversPresenter.swift; sourceTree = "<group>"; };
 		5248E58425F7E501008CCA0D /* CoversResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoversResponse.swift; sourceTree = "<group>"; };
+		52BD227525F93BA7005B3B7E /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		52BD227925F93BBB005B3B7E /* FavoriteScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoriteScene.storyboard; sourceTree = "<group>"; };
+		52BD227C25F93C6C005B3B7E /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		52BD227F25F93C82005B3B7E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		52BD228325F93CB5005B3B7E /* FavoriteCover.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteCover.xcdatamodel; sourceTree = "<group>"; };
+		52BD228925F93E7C005B3B7E /* FavoriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
+		52BD228D25F93F5C005B3B7E /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +117,8 @@
 				5248E54E25F7D5F7008CCA0D /* NetworkService.swift */,
 				5248E55125F7D608008CCA0D /* API.swift */,
 				5248E55425F7D621008CCA0D /* NetworkDataFetcher.swift */,
+				52BD227C25F93C6C005B3B7E /* CoreDataStack.swift */,
+				52BD227F25F93C82005B3B7E /* CoreDataManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -119,6 +135,7 @@
 		5248E54725F7D5B7008CCA0D /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				52BD227425F93B80005B3B7E /* Favorite */,
 				5248E54925F7D5C4008CCA0D /* Cover */,
 				5248E54825F7D5BF008CCA0D /* Covers */,
 			);
@@ -168,9 +185,45 @@
 		5248E58325F7E4E3008CCA0D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5248E58425F7E501008CCA0D /* CoversResponse.swift */,
+				52BD228725F93CC2005B3B7E /* Database */,
+				52BD228625F93CBA005B3B7E /* Response */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		52BD227425F93B80005B3B7E /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				52BD228C25F93F48005B3B7E /* FavoriteCell */,
+				52BD227525F93BA7005B3B7E /* FavoriteViewController.swift */,
+				52BD227925F93BBB005B3B7E /* FavoriteScene.storyboard */,
+				52BD228925F93E7C005B3B7E /* FavoriteService.swift */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		52BD228625F93CBA005B3B7E /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				5248E58425F7E501008CCA0D /* CoversResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		52BD228725F93CC2005B3B7E /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				52BD228225F93CB5005B3B7E /* FavoriteCover.xcdatamodeld */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		52BD228C25F93F48005B3B7E /* FavoriteCell */ = {
+			isa = PBXGroup;
+			children = (
+				52BD228D25F93F5C005B3B7E /* FavoriteCell.swift */,
+			);
+			path = FavoriteCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52BD227A25F93BBB005B3B7E /* FavoriteScene.storyboard in Resources */,
 				5248E53C25F7D32A008CCA0D /* LaunchScreen.storyboard in Resources */,
 				5248E55B25F7D678008CCA0D /* CoversScene.storyboard in Resources */,
 				5248E56125F7D69B008CCA0D /* CoverScene.storyboard in Resources */,
@@ -247,17 +301,23 @@
 				5248E58525F7E501008CCA0D /* CoversResponse.swift in Sources */,
 				5248E56C25F7D88A008CCA0D /* CoversCell.swift in Sources */,
 				5248E57825F7E175008CCA0D /* WebImageView.swift in Sources */,
+				52BD228025F93C82005B3B7E /* CoreDataManager.swift in Sources */,
+				52BD227D25F93C6C005B3B7E /* CoreDataStack.swift in Sources */,
+				52BD228E25F93F5C005B3B7E /* FavoriteCell.swift in Sources */,
 				5248E55525F7D621008CCA0D /* NetworkDataFetcher.swift in Sources */,
 				5248E54F25F7D5F7008CCA0D /* NetworkService.swift in Sources */,
 				5248E58125F7E3FD008CCA0D /* CoversPresenter.swift in Sources */,
 				5248E54B25F7D5E0008CCA0D /* Constraints.swift in Sources */,
 				5248E55E25F7D689008CCA0D /* CoverViewController.swift in Sources */,
+				52BD228A25F93E7C005B3B7E /* FavoriteService.swift in Sources */,
 				5248E57125F7D8D1008CCA0D /* Constants.swift in Sources */,
 				5248E57E25F7E3E9008CCA0D /* CoversService.swift in Sources */,
 				5248E57B25F7E3E1008CCA0D /* CoversModels.swift in Sources */,
 				5248E57425F7D9B4008CCA0D /* FooterView.swift in Sources */,
+				52BD227625F93BA7005B3B7E /* FavoriteViewController.swift in Sources */,
 				5248E53025F7D327008CCA0D /* AppDelegate.swift in Sources */,
 				5248E55225F7D608008CCA0D /* API.swift in Sources */,
+				52BD228425F93CB5005B3B7E /* FavoriteCover.xcdatamodeld in Sources */,
 				5248E55825F7D66D008CCA0D /* CoversViewController.swift in Sources */,
 				5248E53225F7D327008CCA0D /* SceneDelegate.swift in Sources */,
 			);
@@ -453,6 +513,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		52BD228225F93CB5005B3B7E /* FavoriteCover.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				52BD228325F93CB5005B3B7E /* FavoriteCover.xcdatamodel */,
+			);
+			currentVersion = 52BD228325F93CB5005B3B7E /* FavoriteCover.xcdatamodel */;
+			path = FavoriteCover.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5248E52425F7D327008CCA0D /* Project object */;
 }

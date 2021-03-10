@@ -18,12 +18,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
+
+//        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+//        window?.windowScene = windowScene
+//        let coversVC = UIStoryboard(name: "CoversScene", bundle: nil).instantiateInitialViewController() as? CoversViewController
+//        let coversNC = UINavigationController(rootViewController: coversVC!)
+//        window?.rootViewController = coversNC
+//        window?.makeKeyAndVisible()
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        let coversVC = UIStoryboard(name: "CoversScene", bundle: nil).instantiateInitialViewController() as? CoversViewController
-        let coversNC = UINavigationController(rootViewController: coversVC!)
-        window?.rootViewController = coversNC
+        let coversVC = UIStoryboard(name: "CoversScene", bundle: nil).instantiateInitialViewController()
+        let favoriteVC = UIStoryboard(name: "FavoriteScene", bundle: nil).instantiateInitialViewController()
+        coversVC?.title = "Все обложки"
+        favoriteVC?.title = "Избранное"
+        favoriteVC?.tabBarItem.image = UIImage(systemName: "star.fill")
+        
+        let tabBarVC = UITabBarController()
+        
+        tabBarVC.setViewControllers([coversVC!, favoriteVC!], animated: true)
+        
+        window?.rootViewController = tabBarVC
         window?.makeKeyAndVisible()
     }
 
