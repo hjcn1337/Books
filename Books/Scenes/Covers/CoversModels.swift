@@ -34,7 +34,9 @@ struct CoversViewModel {
         let imageUrlString: String
         let coverDescription: String
         let author: String
+        let textID: String
+        var isFavorite: Bool
     }
  
-    let cells: [Cell]
+    var cells: [Cell]
 }

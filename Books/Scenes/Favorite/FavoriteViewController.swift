@@ -8,61 +8,80 @@
 import Foundation
 import UIKit
 
-class FavoriteViewController: UIViewController {
+protocol FavoriteDisplayLogic: class {
+    func displayData(viewModel: Favorite.Model.ViewModel.ViewModelData)
+}
+
+class FavoriteViewController: UIViewController, FavoriteDisplayLogic {
     
-    var favoriteService = FavoriteService()
+    var presenter: FavoritePresentationLogic?
     
     @IBOutlet weak var table: UITableView!
     
-    var covers: [FavoriteCover] = []
     private var coversViewModel = CoversViewModel.init(cells: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setup()
+        setupTable()
+        navigationItem.title = "Избранное"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        covers = favoriteService.getFavorite()
-        table.reloadData()
+        presenter?.presentData(request: Favorite.Model.Response.ResponseType.presentFavorite)
+    }
+    
+    private func setup() {
+        presenter = FavoritePresenter(view: self)
     }
     
     private func setupTable() {
         table.register(FavoriteCell.self, forCellReuseIdentifier: FavoriteCell.reuseId)
     }
+    
+    func displayData(viewModel: Favorite.Model.ViewModel.ViewModelData) {
+        switch viewModel {
+        case .displayFavorite(let coversViewModel):
+            self.coversViewModel = coversViewModel
+            table.reloadData()
+        }
+    }
 }
 
 extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return covers.count
+        return coversViewModel.cells.count
     }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
-        let cover = covers[indexPath.row]
-        cell.textLabel?.text = "repo.fullName"
+        let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteCell.reuseId, for: indexPath) as! FavoriteCell
+        let cellViewModel = coversViewModel.cells[indexPath.row]
+        cell.set(viewModel: cellViewModel)
 
         return cell
     }
     
-
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == .delete) {
-            let cover = covers[indexPath.row]
-            
-            covers.remove(at: indexPath.row)
-            favoriteService.deleteCoverFromFavorite(cover: cover)
-            table.deleteRows(at: [indexPath], with: .automatic)
-
-        }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Constants.cellHeight
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cellViewModel = coversViewModel.cells[indexPath.row]
+        
+        let storyboard = UIStoryboard(name: "CoverScene", bundle: nil)
+        guard let coverViewController = storyboard.instantiateViewController(identifier: "CoverViewController") as? CoverViewController else { return }
+        
+        coverViewController.coverAuthor = cellViewModel.author
+        coverViewController.coverDescription = cellViewModel.coverDescription
+        coverViewController.coverImageUrlString = cellViewModel.imageUrlString
+        coverViewController.coverTitle = cellViewModel.title
+        
+        navigationController?.pushViewController(coverViewController, animated: true)
     }
 }
 

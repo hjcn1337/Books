@@ -20,7 +20,7 @@ class FavoriteService {
         return covers
     }
     
-    func deleteCoverFromFavorite(cover: FavoriteCover) {
+    func deleteCoverFromFavorite(cover: CoversCellViewModel) {
         coreDataManager.deleteCoverFromFavorite(cover: cover)
     }
 }

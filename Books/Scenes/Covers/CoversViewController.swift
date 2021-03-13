@@ -12,7 +12,7 @@ protocol CoversDisplayLogic: class {
     func displayData(viewModel: Covers.Model.ViewModel.ViewModelData)
 }
 
-class CoversViewController: UIViewController, CoversDisplayLogic {
+class CoversViewController: UIViewController, CoversDisplayLogic, CoversCellDelegate {
     
     var presenter: CoversPresentationLogic?
 
@@ -50,6 +50,19 @@ class CoversViewController: UIViewController, CoversDisplayLogic {
         }
     }
     
+    func favoriteAction(cell: CoversCell) {
+        guard let indexPath = table.indexPath(for: cell) else { return }
+        let cellViewModel = coversViewModel.cells[indexPath.row]
+        if cell.favoriteButton.currentBackgroundImage == Constants.isFavoriteFalseBtnImg {
+            cell.favoriteButton.setBackgroundImage(Constants.isFavoriteTrueBtnImg, for: .normal)
+            coversViewModel.cells[indexPath.row].isFavorite = true
+        } else {
+            cell.favoriteButton.setBackgroundImage(Constants.isFavoriteFalseBtnImg, for: .normal)
+            coversViewModel.cells[indexPath.row].isFavorite = false
+        }
+        presenter?.favoriteAction(cover: cellViewModel)
+    }
+    
     private func setup() {
         presenter = CoversPresenter(view: self)
     }
@@ -76,11 +89,12 @@ extension CoversViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: CoversCell.reuseId, for: indexPath) as! CoversCell
         let cellViewModel = coversViewModel.cells[indexPath.row]
         cell.set(viewModel: cellViewModel)
+        cell.delegate = self
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return Constants.cellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

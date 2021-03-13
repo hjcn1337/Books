@@ -12,7 +12,7 @@ import UIKit
 protocol CoreDataManaging {
     func addCoverToFavorite(coverModel: CoversCellViewModel)
     func getFavorite() -> [FavoriteCover]
-    func deleteCoverFromFavorite(cover: FavoriteCover)
+    func deleteCoverFromFavorite(cover: CoversCellViewModel)
 }
 
 struct CoreDataManager: CoreDataManaging {
@@ -39,6 +39,7 @@ struct CoreDataManager: CoreDataManaging {
         coverObject.imageUrlString = coverModel.imageUrlString
         coverObject.desc = coverModel.coverDescription
         coverObject.title = coverModel.title
+        coverObject.textID = coverModel.textID
         
         do {
             try context.save()
@@ -47,8 +48,19 @@ struct CoreDataManager: CoreDataManaging {
         }
     }
     
-    func deleteCoverFromFavorite(cover: FavoriteCover) {
-        context.delete(cover)
+    func deleteCoverFromFavorite(cover: CoversCellViewModel) {
+        let fetchRequest: NSFetchRequest<FavoriteCover> = FavoriteCover.fetchRequest()
+        let predicate = NSPredicate(format: "textID == %@", cover.textID)
+        fetchRequest.predicate = predicate
+        
+        do {
+            let coverArray = try context.fetch(fetchRequest)
+            guard let coverToDelete = coverArray.first else { return }
+            context.delete(coverToDelete)
+            try context.save()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
         
         do {
             try context.save()

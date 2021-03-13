@@ -13,10 +13,12 @@ protocol CoversCellViewModel {
     var imageUrlString: String { get }
     var coverDescription: String { get }
     var author: String { get }
+    var textID: String { get }
+    var isFavorite: Bool { get }
 }
 
 protocol CoversCellDelegate: class {
-    func favoriteAction(for cell: CoversCell)
+    func favoriteAction(cell: CoversCell)
 }
 
 class CoversCell: UITableViewCell {
@@ -50,7 +52,7 @@ class CoversCell: UITableViewCell {
     let favoriteButton: UIButton = {
        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setBackgroundImage(UIImage(systemName: "star"), for: .normal)
+        button.setBackgroundImage(Constants.isFavoriteFalseBtnImg, for: .normal)
         return button
     }()
     
@@ -67,7 +69,7 @@ class CoversCell: UITableViewCell {
     }
     
     @objc func favoriteTouch() {
-        delegate?.favoriteAction(for: self)
+        delegate?.favoriteAction(cell: self)
     }
     
     private func overlayCardView() {
@@ -108,6 +110,11 @@ class CoversCell: UITableViewCell {
     }
     
     func set(viewModel: CoversCellViewModel) {
+        if viewModel.isFavorite {
+            favoriteButton.setBackgroundImage(Constants.isFavoriteTrueBtnImg, for: .normal)
+        } else {
+            favoriteButton.setBackgroundImage(Constants.isFavoriteFalseBtnImg, for: .normal)
+        }
         
         coverImageView.set(imageURL: viewModel.imageUrlString)
         titleLabel.text = viewModel.title

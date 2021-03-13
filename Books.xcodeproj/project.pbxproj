@@ -34,6 +34,8 @@
 		52BD228425F93CB5005B3B7E /* FavoriteCover.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52BD228225F93CB5005B3B7E /* FavoriteCover.xcdatamodeld */; };
 		52BD228A25F93E7C005B3B7E /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BD228925F93E7C005B3B7E /* FavoriteService.swift */; };
 		52BD228E25F93F5C005B3B7E /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BD228D25F93F5C005B3B7E /* FavoriteCell.swift */; };
+		52BD229425FD23EF005B3B7E /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BD229325FD23EE005B3B7E /* FavoritePresenter.swift */; };
+		52BD229725FD243F005B3B7E /* FavoriteModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BD229625FD243F005B3B7E /* FavoriteModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		52BD228325F93CB5005B3B7E /* FavoriteCover.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteCover.xcdatamodel; sourceTree = "<group>"; };
 		52BD228925F93E7C005B3B7E /* FavoriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
 		52BD228D25F93F5C005B3B7E /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		52BD229325FD23EE005B3B7E /* FavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenter.swift; sourceTree = "<group>"; };
+		52BD229625FD243F005B3B7E /* FavoriteModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,9 +199,11 @@
 			isa = PBXGroup;
 			children = (
 				52BD228C25F93F48005B3B7E /* FavoriteCell */,
+				52BD229625FD243F005B3B7E /* FavoriteModels.swift */,
+				52BD228925F93E7C005B3B7E /* FavoriteService.swift */,
+				52BD229325FD23EE005B3B7E /* FavoritePresenter.swift */,
 				52BD227525F93BA7005B3B7E /* FavoriteViewController.swift */,
 				52BD227925F93BBB005B3B7E /* FavoriteScene.storyboard */,
-				52BD228925F93E7C005B3B7E /* FavoriteService.swift */,
 			);
 			path = Favorite;
 			sourceTree = "<group>";
@@ -309,6 +315,7 @@
 				5248E58125F7E3FD008CCA0D /* CoversPresenter.swift in Sources */,
 				5248E54B25F7D5E0008CCA0D /* Constraints.swift in Sources */,
 				5248E55E25F7D689008CCA0D /* CoverViewController.swift in Sources */,
+				52BD229725FD243F005B3B7E /* FavoriteModels.swift in Sources */,
 				52BD228A25F93E7C005B3B7E /* FavoriteService.swift in Sources */,
 				5248E57125F7D8D1008CCA0D /* Constants.swift in Sources */,
 				5248E57E25F7E3E9008CCA0D /* CoversService.swift in Sources */,
@@ -320,6 +327,7 @@
 				52BD228425F93CB5005B3B7E /* FavoriteCover.xcdatamodeld in Sources */,
 				5248E55825F7D66D008CCA0D /* CoversViewController.swift in Sources */,
 				5248E53225F7D327008CCA0D /* SceneDelegate.swift in Sources */,
+				52BD229425FD23EF005B3B7E /* FavoritePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

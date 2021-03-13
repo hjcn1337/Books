@@ -22,7 +22,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bQM-0r-N54" customClass="WebImageView" customModule="RandomContacts" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bQM-0r-N54" customClass="WebImageView" customModule="Books" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="74" width="414" height="268"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bQM-0r-N54" secondAttribute="height" multiplier="17:11" id="jwP-T0-sbe"/>
